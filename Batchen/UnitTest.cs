@@ -19,18 +19,18 @@ namespace Batchen
             //Console.WriteLine(Print(n));
             //Console.WriteLine("\n" + n);
 
-            IntNode n1 = new IntNode(-17);
+            IntNode n1 = new IntNode(88);
             IntNode n = new IntNode(17, n1);
             n1 = null;
 
             Console.WriteLine(Print(n));
-            Console.WriteLine(n.GetValue);
+            Console.WriteLine(n.GetValue());
         }
         public static void Test1()
         {
             IntNode n2 = new IntNode(51);
             IntNode n1 = new IntNode(3, n2);
-            IntNode n = new IntNode(42,n1);
+            IntNode n = new IntNode(42, n1);
             n2 = null;
             n1 = null;
 
@@ -43,7 +43,7 @@ namespace Batchen
 
             bool b = true;
             IntNode temp = n;
-            while(b)
+            while (b)
             {
                 Console.WriteLine(temp);
                 temp = temp.GetNext();
@@ -52,17 +52,13 @@ namespace Batchen
             }
         }
 
-        public static string Print(IntNode lst)
+        public static string Print(IntNode temp)
         {
             string s = "-->";
-            bool b = true;
-            IntNode temp = lst;
-            while(b)
+            while (temp != null)
             {
-                s += lst.ToString() + "-->";
+                s += temp.ToString() + "-->";
                 temp = temp.GetNext();
-                if (temp == null)
-                    b = false;
             }
             s += "null";
             return s;
