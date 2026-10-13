@@ -19,7 +19,12 @@ namespace Batchen
             //Console.WriteLine(Print(n));
             //Console.WriteLine("\n" + n);
 
+            IntNode n1 = new IntNode(-17);
+            IntNode n = new IntNode(17, n1);
+            n1 = null;
 
+            Console.WriteLine(Print(n));
+            Console.WriteLine(n.GetValue);
         }
         public static void Test1()
         {
@@ -65,7 +70,13 @@ namespace Batchen
 
         public static int T1(IntNode lst)
         {
-
+            int sum = 0;
+            while (lst != null)
+            {
+                sum += lst.GetValue();
+                lst = lst.GetNext();
+            }
+            return sum;
         }
     }
 }
