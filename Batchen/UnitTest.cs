@@ -19,12 +19,21 @@ namespace Batchen
             //Console.WriteLine(Print(n));
             //Console.WriteLine("\n" + n);
 
-            IntNode n1 = new IntNode(88);
+            IntNode n3 = new IntNode(2);
+            IntNode n2 = new IntNode(9, n3);
+            IntNode n1 = new IntNode(88, n2);
             IntNode n = new IntNode(17, n1);
-            n1 = null;
-
             Console.WriteLine(Print(n));
-            Console.WriteLine(n.GetValue());
+            Console.WriteLine("-------------------------------------------------------------------");
+
+            // T1 Test:
+            //Console.WriteLine(T1(n));
+
+            //T2 Test:
+            //Console.WriteLine(T2(n));
+
+            //T3 Test:
+            //Console.WriteLine(T3(n));
         }
         public static void Test1()
         {
@@ -73,6 +82,38 @@ namespace Batchen
                 lst = lst.GetNext();
             }
             return sum;
+        }
+
+        public static int T2(IntNode lst)
+        {
+            int count = 0;
+            while (lst != null)
+            {
+                if (lst.GetValue() % 2 == 1)
+                {
+                    count++;
+                }
+                lst = lst.GetNext();
+            }
+            return count;
+        }
+
+        public static int T3(IntNode lst)
+        {
+            int sumEven = 0, sumOdd = 0;
+            while (lst != null)
+            {
+                if (lst.GetValue() % 2 == 0)
+                {
+                    sumEven += lst.GetValue();
+                }
+                else
+                {
+                    sumOdd += lst.GetValue();
+                }
+                lst = lst.GetNext();
+            }
+            return Math.Abs(sumOdd - sumEven);
         }
     }
 }
